@@ -6,3 +6,7 @@ FAP server assigns timetable for FPT's students. However, Some students want to 
 Currently, I only crawl data at one point and database will not change. Because I don't know how to authenticate FAP sever to crawl data and update database runtime. I will find it after or if you know solution, please contact me <a href="https://www.facebook.com/dung.phamhoang.92">Facebook</a>  
 > ### comming soon!
 
+### 3. Demo
+Assign a timtable with 8 courses.
+![](https://i.imgur.com/AEhbIQn.png)
+
