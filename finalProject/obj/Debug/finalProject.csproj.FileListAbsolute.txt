@@ -1,0 +1,10 @@
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\bin\Debug\finalProject.exe.config
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\bin\Debug\finalProject.exe
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\bin\Debug\finalProject.pdb
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\obj\Debug\finalProject.csprojAssemblyReference.cache
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\obj\Debug\finalProject.Form1.resources
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\obj\Debug\finalProject.Properties.Resources.resources
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\obj\Debug\finalProject.csproj.GenerateResource.cache
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\obj\Debug\finalProject.csproj.CoreCompileInputs.cache
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\obj\Debug\finalProject.exe
+C:\Users\DELL\OneDrive\FU_SE05411\fall2018\New folder\finalProject\finalProject\obj\Debug\finalProject.pdb
