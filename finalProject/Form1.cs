@@ -29,26 +29,43 @@ namespace finalProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
 
+            dataGridView1.Columns.Add("SubjectID", "Subject ID");
+            dataGridView1.Columns["SubjectID"].DataPropertyName = "SubjectID";
+
+            dataGridView1.Columns.Add("Subject", "Subject Name");
+            dataGridView1.Columns["Subject"].DataPropertyName = "Subject";
+
+            dataGridView1.Columns.Add("ChuoiLich", "potential schedule");
+            dataGridView1.Columns["ChuoiLich"].DataPropertyName = "ChuoiLich";
+
+            DataGridViewButtonColumn delCol = new DataGridViewButtonColumn();
+            delCol.Name = "Delete";
+            delCol.Text = "Delete";
+            delCol.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(delCol);
         }
-
-       
 
         private void comboBoxSubject_SelectedIndexChanged(object sender, EventArgs e) // add mon
         {
             String s = comboBoxSubject.SelectedValue.ToString();
         }
-
         private void buttonAddSubject_Click(object sender, EventArgs e)
         {
+            Subject l = comboBoxSubject.SelectedItem as Subject;
+            string subject = l.Name;
+            string subjectId = l.ID;
             List<string> lich = new List<string>();
-            String s = comboBoxSubject.SelectedValue.ToString();
             foreach(object i in listSchedule.CheckedItems)
             {
                 lich.Add(i.ToString());
             }
-            Proposal p = new Proposal(s, lich);
+            Proposal p = new Proposal(subjectId, subject, lich);
             myProposal.Add(p);
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = myProposal;
         }
         private void checkKq()
         {
@@ -137,6 +154,24 @@ namespace finalProject
             for (int i = 0; i < myProposal.Count; i++)
                 res = res + kq[i].Lich + "\n";
             MessageBox.Show(res);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                List<Proposal> list = (List<Proposal>)dataGridView1.DataSource;
+                int index = e.RowIndex;
+                DialogResult res = MessageBox.Show("Do you want to delete?", "Confirm", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    myProposal.RemoveAt(index);
+                    test.Text = "" + myProposal.Count;
+                    MessageBox.Show("Delete Successful!");
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = myProposal;
+                }
+            }
         }
     }
 }

@@ -8,13 +8,30 @@ namespace finalProject.Entity
     class Proposal
     {
         public string Subject { get; set; }
+        public string SubjectID { get; set; }
         public List<string> Lich { get; set; }
+        public string ChuoiLich
+        {
+            get
+            {
+                if (Lich.Count == 0) return "";
+                string res = "";
+                for (int i = 0; i < Lich.Count - 1; i++)
+                {
+                    string s = Lich.ElementAt(i);
+                    res = res + s + ", ";
+                }
+                res = res + Lich.ElementAt(Lich.Count - 1);
+                return res;
+            }
+        }
         public Proposal()
         {
 
         }
-        public Proposal(string subject, List<string> lich)
+        public Proposal(string subjectId, string subject, List<string> lich)
         {
+            SubjectID = subjectId;
             Subject = subject;
             Lich = lich;
         }

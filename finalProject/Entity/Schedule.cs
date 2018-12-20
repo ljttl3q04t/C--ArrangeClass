@@ -7,7 +7,7 @@ namespace finalProject.Entity
 {
     class Schedule
     {
-        public string Subject { get; set; }
+        public string Subject { get; set; } // subject id
         public string Class { get; set; }
         public string Lich { get; set; }
         public string Amount { get; set; }
