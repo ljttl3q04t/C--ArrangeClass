@@ -20,13 +20,18 @@ namespace finalProject
         {
             InitializeComponent();
             myProposal = new List<Proposal>();
-            listLich = new List<Schedule>();
+            listLich = ScheduleDAO.selectSchedule();
+            //test4();
             List<Subject> list = SubjectDAO.selectSubject();
             comboBoxSubject.DisplayMember = "Name";
             comboBoxSubject.ValueMember = "Id";
             comboBoxSubject.DataSource = list;
         }
-
+        void test4()
+        {
+            int amount = Convert.ToInt32(listLich.ElementAt(0).Amount);
+            test.Text = listLich.ElementAt(0).Amount;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
@@ -82,11 +87,19 @@ namespace finalProject
                     {
                         if (ca[i].Equals(ca[j])) return;
                     }
-            test.Text = res;
+            test.Text = "Xếp lịch thành công! ^_^\n" + res;
             ok = true;
         }
         private bool hop(int i, Schedule j)
         {
+            //string tg = j.Amount;
+            //try
+            //{
+            //    if (Convert.ToInt32(tg) >= 30) return false;
+            //} catch(Exception err)
+            //{
+            //    return false;
+            //}
             Proposal p = myProposal.ElementAt(i);
             //MessageBox.Show(p.SubjectID + "\n" + j.Subject + "\n" + p.SubjectID.Trim().Equals(j.Subject.Trim()));
             if (p.SubjectID.Trim().Equals(j.Subject.Trim()))
@@ -108,7 +121,6 @@ namespace finalProject
             if (ok) return;
             if (i == myProposal.Count)
             {
-                //test3();
                 checkKq();
                 return;
             }
@@ -124,39 +136,15 @@ namespace finalProject
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            //test1();
-            listLich = ScheduleDAO.selectSchedule();
-            //test2();
             kq = new Schedule[myProposal.Count];
             ok = false;
             duyet(0);
-        }
-        void test2()
-        {
-            string res = "";
-            foreach(Schedule s in listLich)
+            if (!ok)
             {
-                res = res + s.ToString() + "\n";
+                test.Text = "Xin lỗi, không xếp được lịch.\nMời thử lại!";
             }
-            MessageBox.Show(res);
         }
-        void test1()
-        {
-            string res = "";
-            foreach (Proposal p in myProposal)
-            {
-                res = res + p.ToString() + "\n";
-            }
-            MessageBox.Show(res);
-        }
-        void test3()
-        {
-            string res = "";
-            for (int i = 0; i < myProposal.Count; i++)
-                res = res + kq[i].Lich + "\n";
-            MessageBox.Show(res);
-        }
-
+        
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 3)
@@ -164,7 +152,6 @@ namespace finalProject
                 List<Proposal> list = (List<Proposal>)dataGridView1.DataSource;
                 int index = e.RowIndex;
                 myProposal.RemoveAt(index);
-                test.Text = "" + myProposal.Count;
                 updateGrid();
             }
         }

@@ -113,7 +113,7 @@
             // test
             // 
             this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(505, 171);
+            this.test.Location = new System.Drawing.Point(472, 133);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(24, 13);
             this.test.TabIndex = 7;
