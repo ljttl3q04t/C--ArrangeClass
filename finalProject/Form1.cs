@@ -88,12 +88,13 @@ namespace finalProject
         private bool hop(int i, Schedule j)
         {
             Proposal p = myProposal.ElementAt(i);
-            //MessageBox.Show(p.ToString() + "\n" + j.Lich + " " + j.Subject);
-            if (p.Subject.Trim().Equals(j.Subject.Trim()))
+            //MessageBox.Show(p.SubjectID + "\n" + j.Subject + "\n" + p.SubjectID.Trim().Equals(j.Subject.Trim()));
+            if (p.SubjectID.Trim().Equals(j.Subject.Trim()))
             {
+               // MessageBox.Show("buoc 1");
                 foreach (string k in p.Lich)
                 {
-                    if (k.Equals(j.Lich))
+                    if (k.Trim().Equals(j.Lich.Trim()))
                     {
                         //MessageBox.Show(p.ToString() + "\n" + j.Lich + " " + j.Subject);
                         return true;
@@ -162,16 +163,20 @@ namespace finalProject
             {
                 List<Proposal> list = (List<Proposal>)dataGridView1.DataSource;
                 int index = e.RowIndex;
-                DialogResult res = MessageBox.Show("Do you want to delete?", "Confirm", MessageBoxButtons.YesNo);
-                if (res == DialogResult.Yes)
-                {
-                    myProposal.RemoveAt(index);
-                    test.Text = "" + myProposal.Count;
-                    MessageBox.Show("Delete Successful!");
-                    dataGridView1.DataSource = null;
-                    dataGridView1.DataSource = myProposal;
-                }
+                myProposal.RemoveAt(index);
+                test.Text = "" + myProposal.Count;
+                updateGrid();
             }
+        }
+        void updateGrid()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = myProposal;
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            test.Text = e.ToString();
         }
     }
 }

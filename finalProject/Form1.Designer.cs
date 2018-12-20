@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.buttonAddSubject = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listSchedule = new System.Windows.Forms.CheckedListBox();
             this.test = new System.Windows.Forms.Label();
@@ -80,15 +79,6 @@
             this.buttonAddSubject.Text = "Thêm môn";
             this.buttonAddSubject.UseVisualStyleBackColor = true;
             this.buttonAddSubject.Click += new System.EventHandler(this.buttonAddSubject_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
             // 
             // label4
             // 
@@ -148,6 +138,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(460, 195);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
             // Form1
             // 
@@ -159,13 +150,12 @@
             this.Controls.Add(this.test);
             this.Controls.Add(this.listSchedule);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonAddSubject);
             this.Controls.Add(this.comboBoxSubject);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "XepLich";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -179,7 +169,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxSubject;
         private System.Windows.Forms.Button buttonAddSubject;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox listSchedule;
         private System.Windows.Forms.Label test;
