@@ -18,13 +18,13 @@ const fs = require('fs');
 
     await navigationPromise;
     await page.waitForSelector('input[type="email"]');
-    await page.type('input[type="email"]', 'dungphse05411@fpt.edu.vn');
+    await page.type('input[type="email"]', '<your email>');
     await page.click('#identifierNext')
 
     await page.waitForSelector('input[type="password"]', {
         visible: true
     });
-    await page.type('input[type="password"]', 'Dungph@98');
+    await page.type('input[type="password"]', '<your password>');
 
     await page.waitForSelector('#passwordNext', {
         visible: true
