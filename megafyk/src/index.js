@@ -4,8 +4,7 @@ const fs = require('fs');
 const readline = require('readline-sync');
 
 const email = readline.question('what is your email:');
-const password = readline.question('what is your password:');
-
+const password = readline.question('what is your password:: ', {hideEchoBack: true});
 (async () => {
     console.log('Open browser.');
     const browser = await puppeteer.launch({
