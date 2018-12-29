@@ -125,7 +125,7 @@ namespace XepLich
                 comboBox2.DataSource = cach;
             } else
             {
-               //test.Text = "Chịu! Không xếp được lịch nào phù hợp.";
+               test.Text = test.Text + "\n" + "Chịu! Không xếp được lịch nào phù hợp.";
             }
         }
         //*****
