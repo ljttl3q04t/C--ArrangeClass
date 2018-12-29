@@ -122,7 +122,7 @@
             // test
             // 
             this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(662, 125);
+            this.test.Location = new System.Drawing.Point(833, 126);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(0, 13);
             this.test.TabIndex = 7;
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 533);
+            this.ClientSize = new System.Drawing.Size(864, 533);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.makeButton);
             this.Controls.Add(this.test);

@@ -107,6 +107,8 @@ namespace XepLich
         //*********** most important
         private void makeButton_Click(object sender, EventArgs e)
         {
+            List<string> reset = new List<string>();
+            comboBox2.DataSource = reset;
             kq = new Schedule[proposals.Count];
             validSchedule = getValidSchedule();
             result = new List<List<Schedule>>();
@@ -123,7 +125,7 @@ namespace XepLich
                 comboBox2.DataSource = cach;
             } else
             {
-               test.Text = "Chịu! Không xếp được lịch nào phù hợp.";
+               //test.Text = "Chịu! Không xếp được lịch nào phù hợp.";
             }
         }
         //*****
