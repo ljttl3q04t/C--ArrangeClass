@@ -34,15 +34,15 @@ namespace XepLich
             courseComboBox.DataSource = tg;
             schedules = Data.getAllSchedule(courses);
             yourSchedules = Data.getYourCurrentSchedule(courses);
-            string s = "";
+            //string s = "";
 
             foreach (Schedule x in yourSchedules)
             {
-                s = s + getIndexSlot(x.Slot) + "\n";
+                //s = s + getIndexSlot(x.Slot) + "\n";
                 checkedListBox1.SetItemChecked(getIndexSlot(x.Slot), true);
             }
             proposals = yourSchedules;
-            test.Text = s;
+            //test.Text = s;
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.Columns.Add("CourseID", "Course ID");
@@ -65,8 +65,6 @@ namespace XepLich
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = proposals;
-
-           
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -109,19 +107,23 @@ namespace XepLich
         //*********** most important
         private void makeButton_Click(object sender, EventArgs e)
         {
+            kq = new Schedule[proposals.Count];
             validSchedule = getValidSchedule();
             result = new List<List<Schedule>>();
             canAssign = false;
+            //test.Text = test.Text + "\n" + validSchedule.Count;
+            //test.Text = test.Text + "\n" + proposals.Count;
             duyet(0);
             if (canAssign)
             {
+                test.Text = "Xếp được";
                 List<string> cach = new List<string>();
                 for (int i = 0; i < result.Count; i++)
                     cach.Add("Cách " + i);
                 comboBox2.DataSource = cach;
             } else
             {
-                test.Text = "Chịu! Không xếp được lịch nào phù hợp.";
+               test.Text = "Chịu! Không xếp được lịch nào phù hợp.";
             }
         }
         //*****
@@ -137,10 +139,13 @@ namespace XepLich
             foreach(Schedule s in validSchedule)
             {
                 if(hop(s, i))
+                {
                     kq[i] = s;
-                duyet(i + 1);
+                    duyet(i + 1);
+                }
             }
         }
+
         public bool hop(Schedule s, int i)
         {
             Schedule p = proposals.ElementAt(i);
@@ -157,20 +162,30 @@ namespace XepLich
 
         public void checkKq()
         {
-            
+            for (int i = 0; i < proposals.Count; i++)
+                for (int j = 0; j < proposals.Count; j++) if (i != j)
+                    {
+                        if (kq[i].Slot.Equals(kq[j].Slot)) return;
+                    }
+            List<Schedule> res = new List<Schedule>();
+            for (int i = 0; i < proposals.Count; i++) res.Add(kq[i]);
+            result.Add(res);
+            canAssign = true;
         }
+
         public List<Schedule> getValidSchedule()
         {
+            string ss = "";
             List<string> desireSchedule = new List<string>();
             foreach (object itemChecked in checkedListBox1.CheckedItems)
             {
                 desireSchedule.Add("" + checkedListBox1.Items.IndexOf(itemChecked));
+                //ss = ss + checkedListBox1.Items.IndexOf(itemChecked) + "\n";
             }
             List<Schedule> list = new List<Schedule>();
-            string ss = "";
+           
             foreach(Schedule s in schedules)
             {
-                if (Convert.ToInt32(s.NumberStudent) >= 30) continue;
                 bool ok = false;
                 foreach(Schedule p in proposals)
                 {
@@ -181,7 +196,37 @@ namespace XepLich
                     }
                 }
                 if (!ok) continue;
-                if (!checkValidSlot(s.Slot, desireSchedule)) continue;
+                if (Convert.ToInt32(s.NumberStudent) >= 30)
+                {
+                    //ss = ss + " qua si so " + s.ToString() + "\n";
+                    continue;
+                }
+                if (!checkValidSlot(s.Slot, desireSchedule))
+                {
+                    //ss = ss + " khac slot " + s.ToString() + "\n";
+                    continue;
+                }
+                ss = ss  + s.ToString() + "\n";
+                list.Add(s);
+            }
+            foreach (Schedule s in yourSchedules)
+            {
+                bool ok = true;
+                foreach(Schedule x in list)
+                {
+                    if (x.CourseID.Equals(s.CourseID) && x.CourseName.Equals(s.CourseName))
+                        if (x.Slot.Equals(s.Slot))
+                        {
+                            ok = false;
+                            break;
+                        }
+                }
+                if (!ok) continue;
+                if (!checkValidSlot(s.Slot, desireSchedule))
+                {
+                    //ss = ss + " khac slot " + s.ToString() + "\n";
+                    continue;
+                }
                 ss = ss + s.ToString() + "\n";
                 list.Add(s);
             }
