@@ -1,7 +1,10 @@
 'use strict'
-
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const readline = require('readline-sync');
+
+const email = readline.question('what is your email:');
+const password = readline.question('what is your password:');
 
 (async () => {
     console.log('Open browser.');
@@ -18,13 +21,13 @@ const fs = require('fs');
 
     await navigationPromise;
     await page.waitForSelector('input[type="email"]');
-    await page.type('input[type="email"]', '<your email>');
+    await page.type('input[type="email"]', email);
     await page.click('#identifierNext')
 
     await page.waitForSelector('input[type="password"]', {
         visible: true
     });
-    await page.type('input[type="password"]', '<your password>');
+    await page.type('input[type="password"]', password);
 
     await page.waitForSelector('#passwordNext', {
         visible: true

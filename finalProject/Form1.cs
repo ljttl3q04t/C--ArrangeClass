@@ -14,23 +14,21 @@ namespace finalProject
     {
         List<Proposal> myProposal;
         List<Schedule> listLich;
+        List<Subject> listSubject, yourSubject;
         Schedule[] kq;
         bool ok;
         public Form1()
         {
             InitializeComponent();
+            //get data
+            listLich = ScheduleDAO.GetSchedules();
+            listSubject = SubjectDAO.GetSubjects();
+            // init combobox
             myProposal = new List<Proposal>();
-            listLich = ScheduleDAO.selectSchedule();
-            //test4();
-            List<Subject> list = SubjectDAO.selectSubject();
+            List<Subject> list = listSubject;
             comboBoxSubject.DisplayMember = "Name";
             comboBoxSubject.ValueMember = "Id";
             comboBoxSubject.DataSource = list;
-        }
-        void test4()
-        {
-            int amount = Convert.ToInt32(listLich.ElementAt(0).Amount);
-            test.Text = listLich.ElementAt(0).Amount;
         }
         private void Form1_Load(object sender, EventArgs e)
         {

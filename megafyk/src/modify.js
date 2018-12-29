@@ -37,6 +37,10 @@ for (var i = 0; i < curCourse.length; i++) {
     }
     yourSchedule.push([code, lop, slot]);
 }
+console.log(yourSchedule);
+let file = fs.createWriteStream('YourSchedule.txt');
+yourSchedule.forEach(x => { file.write(x.join('|') + '\n') });
+file.end();
 // get record
 // subjectID, class, schedule, number
 let courseType = ['CF', 'JPN', 'LAB', 'Math', 'SoftSkill', 'SE'];
@@ -60,7 +64,7 @@ courseType.forEach(x => {
             record.push([subject[k], lop, lich, siso]);
     }
 });
-let file = fs.createWriteStream('Record.txt');
+file = fs.createWriteStream('Record.txt');
 record.forEach(x => { file.write(x.join('|') + '\n') });
 file.end();
 // console.log(record);

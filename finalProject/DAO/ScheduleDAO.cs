@@ -25,5 +25,10 @@ namespace finalProject.DAO
             }
             return list;
         }
+        public static List<Schedule> GetSchedules()
+        {
+            List<Schedule> list = new List<Schedule>;
+            return list;
+        }
     }
 }

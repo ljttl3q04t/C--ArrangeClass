@@ -24,5 +24,10 @@ namespace finalProject.DAO
             }
             return list;
         }
+        public static List<Subject> GetSubjects()
+        {
+            List<Subject> list = new List<Subject>();
+            return list;
+        }
     }
 }

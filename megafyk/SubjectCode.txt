@@ -1,0 +1,88 @@
+PRO001
+Programming with Alice
+CSI101
+Connecting to Computer Science
+PRF192
+Programming Fundamentals
+SSG101
+Working in Group Skills
+MAE101
+Mathematics for Engineering
+CEA201
+Computer Organization and Architecture
+PRO201
+Front-end Web Development
+PRO192
+Object-Oriented Programming
+MAD101
+Discrete mathematics
+LAB101
+C Lab
+DBI202
+Introduction to Databases
+OSG202
+Operating Systems
+JPD111
+Japanese 1
+PRJ311
+Desktop Java Applications
+LAB211
+OOP with Java Lab
+CSD201
+Data Structures and Algorithms
+NWC202
+Computer Networking
+PRJ321
+Web-Based Java Applications
+LAB221
+Desktop Java Lab
+SWE102
+Introduction to Software Engineering
+JPD121
+Japanese Elementary 2
+PRN292
+.NET and C#
+JPD131
+Japanese Elementary 3
+LAB231
+Web Java Lab
+SWR302
+Software Requirement
+SWT301
+Software Testing
+OJS201
+On the job training
+SYB301
+Start Your Business
+SWD391
+Software Architecture and Design
+HCI201
+Human-Computer Interaction
+PRM391
+Mobile Programming
+SSC102
+Business Communication
+SE-000001
+Specialization 1
+SE-000002
+Specialization 2
+SE-000003
+Specialization 3
+MAS291
+Statistics and Probability
+MLN101
+Principles of Marxism - Leninism
+SWM301
+Software project management
+HCM201
+Ho Chi Minh Ideology
+VNR201
+Revolutionary line of CPV
+SE-000004
+Specialization 4
+FE-000001
+Free Elective 1
+ITE302
+Ethics in Information technology
+SWP490
+Capstone Project

@@ -1,0 +1,4 @@
+Software Testing(SWT301)(SE1210,start 08/01/2019)
+Web Java Lab(LAB231)(SE1213,start 07/01/2019)
+Japanese Elementary 2(JPD121)(SE1305,start 08/01/2019)
+Software Requirement(SWR302)(SE1218,start 08/01/2019)
