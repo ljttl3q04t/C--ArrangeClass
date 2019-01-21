@@ -13,8 +13,8 @@ Step 4: run project **xeplich**
 Currently, My application is not good because lack of architecture, requirement and testing. Please help me to contribute, by contact me at <a href="https://www.facebook.com/dung.phamhoang.92">Facebook</a>  
 ### New feature: auto feedback teacher
 run: ```node megafyk/src/feedback.js```
-it takes less than 5 second to feedback.
-video demo: 
-{%youtube lhdaf81ayRs %}
+it takes less than 5 second to feedback.   
+video demo: https://www.youtube.com/watch?time_continue=6&v=lhdaf81ayRs
+
 ## 4. Demo
 ![](https://i.imgur.com/z60eryS.png)
