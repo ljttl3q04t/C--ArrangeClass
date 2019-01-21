@@ -5,8 +5,6 @@ const readline = require('readline-sync');
 
 const email = readline.question('what is your email:');
 const password = readline.question('what is your password: ', {hideEchoBack: true});
-// const email = 'dungphse05411@fpt.edu.vn';
-// const password = 'YenAnh@99';
 (async () => {
     console.log('Open browser.');
     const browser = await puppeteer.launch({
